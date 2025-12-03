@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Mi Alvin Page - proyecto-web</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <!-- CSS personalizado -->
+    <style>
+        :root {
+            --primary-color: #4e73df;
+            --secondary-color: #858796;
+            --accent-color: #36b9cc;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding-top: 56px;
+        }
+        
+        .navbar {
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 100px 0;
+            margin-bottom: 50px;
+        }
+        
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .btn-primary:hover {
+            background-color: #3a56c4;
+            border-color: #3a56c4;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 50px;
+            padding-bottom: 15px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-color);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .counter-box {
+            background-color: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .counter-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .clickable-card {
+            cursor: pointer;
+        }
+        
+        footer {
+            background-color: #2e3a59;
+            color: white;
+        }
+        
+        .dev-badge {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #ffc107;
+            color: #000;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            z-index: 1000;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+        
+        .text-purple {
+            color: #6f42c1;
+        }
+        
+        .bg-purple {
+            background-color: #6f42c1;
+        }
+        
+        /* Animaciones */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-fade-in {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-rocket me-2"></i>MiAlvingPage
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#inicio">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#caracteristicas">Características</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#galeria">Galería</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contacto">Contacto</a>
+                    </li>
+                    <li class="nav-item">
+                        <button id="themeToggle" class="btn btn-outline-light ms-2">
+                            <i class="fas fa-moon"></i> Tema
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sección Hero -->
+    <section id="inicio" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 animate-fade-in">
+                    <h1 class="display-4 fw-bold">Bienvenido a mi Alvin Page</h1>
+                    <p class="lead">Esta es MIPAGIN CREADA POR Leding page</p>
+                    <div class="mt-4">
+                        <button id="mainButton" class="btn btn-light btn-lg me-3">
+                            <i class="fas fa-play me-2"></i>Ver Demo
+                        </button>
+                        <button id="learnMore" class="btn btn-outline-light btn-lg">
+                            <i class="fas fa-info-circle me-2"></i>Más Información
+                        </button>
+                    </div>
+                    <div class="mt-4">
+                        <p id="clickCounter" class="text-light">
+                            <i class="fas fa-mouse-pointer me-2"></i>Has hecho click en los botones: <span class="fw-bold">0</span> veces
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center animate-fade-in" style="animation-delay: 0.3s;">
+                    <img src="https://images.unsplash.com/photo-1558655146-364adaf1fcc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                         alt="Desarrollo Web" class="img-fluid rounded shadow">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Características -->
+    <section id="caracteristicas" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center section-title">Características Principales</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 clickable-card" id="card1">
+                        <div class="card-body text-center">
+                            <div class="mb-3">
+                                <i class="fas fa-code fa-3x text-primary"></i>
+                            </div>
+                            <h4 class="card-title">HTML5 & CSS3</h4>
+                            <p class="card-text">Desarrollo con los estándares más recientes de HTML5 y CSS3 para crear experiencias web modernas.</p>
+                            <div class="mt-3">
+                                <span class="badge bg-primary">Click me!</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 clickable-card" id="card2">
+                        <div class="card-body text-center">
+                            <div class="mb-3">
+                                <i class="fab fa-js-square fa-3x text-warning"></i>
+                            </div>
+                            <h4 class="card-title">JavaScript</h4>
+                            <p class="card-text">Interactividad completa con eventos click, manipulación del DOM y funciones dinámicas.</p>
+                            <div class="mt-3">
+                                <span class="badge bg-warning text-dark">Click me!</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 clickable-card" id="card3">
+                        <div class="card-body text-center">
+                            <div class="mb-3">
+                                <i class="fab fa-bootstrap fa-3x text-purple"></i>
+                            </div>
+                            <h4 class="card-title">Bootstrap 5</h4>
+                            <p class="card-text">Diseño responsive y componentes predefinidos para un desarrollo rápido y profesional.</p>
+                            <div class="mt-3">
+                                <span class="badge bg-purple">Click me!</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Contadores -->
+            <div class="row mt-5">
+                <div class="col-md-3">
+                    <div class="counter-box">
+                        <div class="counter-number" id="counter1">0</div>
+                        <p>Proyectos Completados</p>
+                        <button class="btn btn-sm btn-outline-primary" id="incrementCounter1">
+                            <i class="fas fa-plus"></i> Incrementar
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="counter-box">
+                        <div class="counter-number" id="counter2">0</div>
+                        <p>Horas de Desarrollo</p>
+                        <button class="btn btn-sm btn-outline-primary" id="incrementCounter2">
+                            <i class="fas fa-plus"></i> Incrementar
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="counter-box">
+                        <div class="counter-number" id="counter3">0</div>
+                        <p>Clientes Satisfechos</p>
+                        <button class="btn btn-sm btn-outline-primary" id="incrementCounter3">
+                            <i class="fas fa-plus"></i> Incrementar
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="counter-box">
+                        <div class="counter-number" id="counter4">0</div>
+                        <p>Eventos Click Registrados</p>
+                        <button class="btn btn-sm btn-outline-secondary" id="resetAll">
+                            <i class="fas fa-redo"></i> Reiniciar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Galería -->
+    <section id="galeria" class="py-5">
+        <div class="container">
+            <h2 class="text-center section-title">Galería Interactiva</h2>
+            <p class="text-center mb-5">Haz click en las imágenes para ampliarlas o ver detalles.</p>
+            
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                             alt="Código" class="img-fluid rounded shadow clickable-image" data-index="1">
+                        <p class="text-center mt-2">Código HTML/CSS</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                             alt="Git" class="img-fluid rounded shadow clickable-image" data-index="2">
+                        <p class="text-center mt-2">Control de Versiones Git</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                             alt="Despliegue" class="img-fluid rounded shadow clickable-image" data-index="3">
+                        <p class="text-center mt-2">Despliegue en GitHub Pages</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Modal para imagen ampliada -->
+            <div class="modal fade" id="imageModal" tabindex="-1">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalTitle">Imagen</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body text-center">
+                            <img id="modalImage" src="" alt="" class="img-fluid">
+                            <p id="modalDescription" class="mt-3"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Contacto -->
+    <section id="contacto" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center section-title">Contacto</h2>
+            <p class="text-center mb-5">Prueba el formulario de contacto con validación JavaScript</p>
+            
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-body">
+                            <form id="contactForm">
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">Nombre</label>
+                                    <input type="text" class="form-control" id="name" required>
+                                    <div class="invalid-feedback">Por favor, ingresa tu nombre.</div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Correo Electrónico</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                    <div class="invalid-feedback">Por favor, ingresa un correo válido.</div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="message" class="form-label">Mensaje</label>
+                                    <textarea class="form-control" id="message" rows="4" required></textarea>
+                                    <div class="invalid-feedback">Por favor, escribe un mensaje.</div>
+                                </div>
+                                <div class="d-grid">
+                                    <button type="submit" class="btn btn-primary btn-lg">
+                                        <i class="fas fa-paper-plane me-2"></i>Enviar Mensaje
+                                    </button>
+                                </div>
+                                <div id="formMessage" class="mt-3 text-center"></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Práctica 5.1 - Despliegue de Páginas</h5>
+                    <p>Landing Page con Bootstrap y eventos JavaScript.</p>
+                    <p>Desplegado en GitHub Pages.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <h5>Enlaces</h5>
+                    <a href="#inicio" class="text-light me-3">Inicio</a>
+                    <a href="#caracteristicas" class="text-light me-3">Características</a>
+                    <a href="#contacto" class="text-light">Contacto</a>
+                    <div class="mt-3">
+                        <button id="showAlert" class="btn btn-outline-light btn-sm">
+                            <i class="fas fa-info-circle me-1"></i>Info del Proyecto
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <hr class="bg-light">
+            <div class="text-center">
+                <p>&copy; 2025 - Desarrollo Web. Práctica 5.1.</p>
+                <p id="lastClickInfo" class="text-muted">Último evento click: Ninguno aún</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Badge para indicar que está en rama dev (solo visible en desarrollo) -->
+    <div class="dev-badge" id="devBadge">
+        <i class="fas fa-code-branch me-1"></i> Rama: DEV
+    </div>
+
+    <!-- Bootstrap JS y Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+    
+    <!-- JavaScript personalizado -->
+    <script src="script.js"></script>
+</body>
+</html>
